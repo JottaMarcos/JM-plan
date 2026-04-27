@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos & Soluções | JM Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0d1526;
+            --bg-card: #111827;
+            --bg-card2: #0f172a;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-dim: rgba(59,130,246,0.12);
+            --border: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(13, 21, 38, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+        .back-link:hover { gap: 12px; }
+
+        /* HERO */
+        .page-hero {
+            padding: 70px 60px 50px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.25);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-family: 'system-ui', sans-serif;
+            font-size: clamp(40px, 5vw, 54px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 span { color: var(--blue-light); }
+
+        .page-hero p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* GRID DE PLANOS */
+        .plans-section {
+            padding: 60px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .plan-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59,130,246,0.4);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+
+        .plan-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-size: 14px;
+            color: var(--blue-light);
+            font-weight: 600;
+            margin-bottom: 16px;
+            min-height: 20px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: var(--blue-light);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .plan-btn:hover { opacity: 0.85; }
+
+        /* SEÇÃO DE TRANSPARÊNCIA */
+        .transparency-section {
+            padding: 0 20px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .transparency-box {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .transparency-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .transparency-content h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .transparency-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .transparency-content ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .transparency-content li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .transparency-content li::before {
+            content: "";
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .highlight-note {
+            margin-top: 16px;
+            padding: 14px 16px;
+            background: rgba(59,130,246,0.08);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 8px 8px 0;
+            color: var(--blue-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-card2);
+            border-top: 1px solid var(--border);
+            padding: 28px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-subtle);
+        }
+
+        footer a {
+            font-size: 13px;
+            color: var(--blue-light);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            header { padding: 16px 20px; }
+            .page-hero { padding: 40px 20px 30px; }
+            .plans-section { padding: 40px 16px; }
+            .transparency-box { grid-template-columns: 1fr; text-align: center; }
+            .transparency-icon { margin: 0 auto; }
+            .transparency-content ul { grid-template-columns: 1fr; }
+            footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">JM</div>
+        <span class="logo-text">JM Analytics</span>
+    </a>
+    <a href="index.html" class="back-link">← Voltar ao site</a>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+    <div class="page-tag">Soluções Sob Medida</div>
+    <h1>Escolha o plano ideal para <span>seu negócio</span></h1>
+    <p>Soluções claras, prazos realistas e entrega do que foi combinado. Sem surpresas, sem escopo aberto.</p>
+</div>
+
+<!-- PLANOS -->
+<section class="plans-section">
+    <div class="plans-grid">
+
+        <!-- 1. DIAGNÓSTICO -->
+        <div class="plan-card">
+            <div class="plan-icon">🔍</div>
+            <h3>Diagnóstico Completo</h3>
+            <div class="plan-badge">Mais Procurado</div>
+            <div class="plan-price">R$ 897 – 1.497 (único)</div>
+            <ul class="plan-features">
+                <li>Análise profunda das operações</li>
+                <li>Mapeamento de gargalos e perdas</li>
+                <li>Relatório de oportunidades (5–10 pág.)</li>
+                <li>Roadmap de implementação priorizado</li>
+                <li>1 reunião de apresentação (1h)</li>
+            </ul>
+            <a href="https://wa.me/5521969181327?text=Olá!%20Tenho%20interesse%20no%20Diagnóstico%20Completo" class="plan-btn">Solicitar Diagnóstico</a>
+        </div>
+
+        <!-- 2. BI -->
+        <div class="plan-card">
+            <div class="plan-icon">📊</div>
+            <h3>Painel de Controle (BI)</h3>
+            <div class="plan-price">R$ 1.297 – 2.497 (+ R$ 197/mês opcional)</div>
+            <ul class="plan-features">
+                <li>Dashboard personalizado (Power BI/Sheets)</li>
+                <li>Atualização diária ou em tempo real</li>
+                <li>Acesso web e mobile</li>
+                <li>5–8 KPIs estratégicos configurados</li>
+                <li>Treinamento de uso + documentação</li>
+            </ul>
+            <a href="https://wa.me/5521969181327?text=Olá!%20Tenho%20interesse%20no%20Painel%20de%20Controle%20(BI)" class="plan-btn">Quero meu Dashboard</a>
+        </div>
+
+        <!-- 3. AUTOMAÇÃO -->
+        <div class="plan-card">
+            <div class="plan-icon">🤖</div>
+            <h3>Automação Inteligente</h3>
+            <div class="plan-price">R$ 1.497 – 3.500 (+ R$ 297/mês opcional)</div>
+            <ul class="plan-features">
+                <li>Mapeamento de processos repetitivos</li>
+                <li>Automação de 2–3 fluxos críticos</li>
+                <li>Alertas automáticos (e-mail/WhatsApp)</li>
+                <li>Relatórios programados sem intervenção</li>
+                <li>Economia estimada: 20h+/mês</li>
+            </ul>
+            <a href="https://wa.me/5521969181327?text=Olá!%20Tenho%20interesse%20na%20Automação%20Inteligente" class="plan-btn">Automatizar Processos</a>
+        </div>
+
+        <!-- 4. PACOTE LAUNCH -->
+        <div class="plan-card">
+            <div class="plan-icon">🚀</div>
+            <h3>Pacote Launch (Site + Analytics)</h3>
+            <div class="plan-price">R$ 2.997 – 4.500 (+ R$ 297/mês opcional)</div>
+            <ul class="plan-features">
+                <li>Site institucional (5 páginas)</li>
+                <li>Google Analytics + Tag Manager</li>
+                <li>Dashboard básico de leads/vendas</li>
+                <li>1 automação de captura de contatos</li>
+                <li>Treinamento + relatório do 1º mês</li>
+            </ul>
+            <a href="https://wa.me/5521969181327?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Launch" class="plan-btn">Começar do Zero</a>
+        </div>
+
+        <!-- 5. MONITORAMENTO -->
+        <div class="plan-card">
+            <div class="plan-icon">📈</div>
+            <h3>Monitoramento Mensal</h3>
+            <div class="plan-price">R$ 397 – 797/mês (mín. 3 meses)</div>
+            <ul class="plan-features">
+                <li>Acompanhamento contínuo de KPIs</li>
+                <li>Relatório mensal + reunião 30min</li>
+                <li>Ajustes no dashboard conforme necessidade</li>
+                <li>Alertas de anomalias nos dados</li>
+                <li>Suporte prioritário (até 5h/mês)</li>
+            </ul>
+            <a href="https://wa.me/5521969181327?text=Olá!%20Tenho%20interesse%20no%20Monitoramento%20Mensal" class="plan-btn">Assinar Monitoramento</a>
+        </div>
+
+        <!-- Espaço do Personagem (Preenchendo o vazio) -->
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="img/mano_jotta.png" alt="Jotta" style="max-width: 400px; width: 100%; height: auto; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));">
+</div>
+
+    </div>
+</section>
+
+<!-- TRANSPARÊNCIA & ESCOPO -->
+<section class="transparency-section">
+    <div class="transparency-box">
+        <div class="transparency-icon">🔒</div>
+        <div class="transparency-content">
+            <h2>Transparência, Escopo e Compromisso</h2>
+            <p>Trabalho com clareza, entrega do combinado e respeito mútuo. Para garantir qualidade e prazos, sigo estas diretrizes:</p>
+            <ul>
+                <li>Escopo definido e aprovado antes do início</li>
+                <li>2 rodadas de ajustes inclusas (dentro do combinado)</li>
+                <li>Não realizamos refações ilimitadas ou alterações fora do escopo</li>
+                <li>Pagamento dividido: 50% no início, 50% na liberação</li>
+                <li>Trabalho com sinceridade: entrego o que prometo, no prazo acordado</li>
+                <li>Solicitações extras são orçadas à parte, com aprovação prévia</li>
+            </ul>
+            <div class="highlight-note">
+                💡 Se precisar de algo além do plano, faço um orçamento transparente. Sem surpresas, sem cobranças ocultas.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 JM Analytics. Todos os direitos reservados.</p>
+    <div style="display:flex; gap:24px;">
+        <a href="politica-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+    </div>
+</footer>
+
+</body>
+</html>
