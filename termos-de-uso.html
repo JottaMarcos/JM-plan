@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso | JM Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0d1526;
+            --bg-card: #111827;
+            --bg-card2: #0f172a;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-dim: rgba(59,130,246,0.12);
+            --border: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(13, 21, 38, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+        .back-link:hover { gap: 12px; }
+
+        /* HERO DA PÁGINA */
+        .page-hero {
+            padding: 70px 60px 50px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.25);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 span {
+            color: var(--blue-light);
+        }
+
+        .page-hero p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        .last-updated {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-subtle);
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* CONTEÚDO */
+        .content-area {
+            padding: 60px;
+            border-right: 1px solid var(--border);
+        }
+
+        .section-block {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .section-block:last-child {
+            border-bottom: none;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-block:nth-child(1) { animation-delay: 0.05s; }
+        .section-block:nth-child(2) { animation-delay: 0.1s; }
+        .section-block:nth-child(3) { animation-delay: 0.15s; }
+        .section-block:nth-child(4) { animation-delay: 0.2s; }
+
+        .section-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-block h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-block h2 .icon {
+            width: 36px;
+            height: 36px;
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .section-block p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .section-block p:last-child { margin-bottom: 0; }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .info-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-top: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .highlight-box .hb-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--blue-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .contact-email-link {
+            color: var(--blue-light);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(96,165,250,0.3);
+            transition: border-color 0.2s;
+        }
+        .contact-email-link:hover { border-color: var(--blue-light); }
+
+        /* SIDEBAR */
+        .sidebar {
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* PERSONAGEM */
+        .character-card {
+            background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(15,23,42,0.9));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .character-img-wrap {
+            background: linear-gradient(180deg, rgba(59,130,246,0.05) 0%, transparent 100%);
+            padding: 24px 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .character-img-wrap img {
+            width: 160px;
+            max-height: 220px;
+            object-fit: contain;
+            object-position: top;
+            filter: drop-shadow(0 8px 24px rgba(59,130,246,0.2));
+        }
+
+        .character-text {
+            padding: 20px 24px 24px;
+        }
+
+        .character-text strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .character-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .character-text a {
+            display: block;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .character-text a:hover { background: #2563eb; }
+
+        /* SUMÁRIO */
+        .summary-card {
+            background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(15,23,42,0.9));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .summary-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .summary-list li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 7px 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .summary-list li a:hover {
+            background: var(--blue-dim);
+            color: var(--blue-light);
+        }
+
+        .summary-list li a::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--blue);
+            flex-shrink: 0;
+        }
+
+        /* BADGE TERMOS */
+        .terms-badge {
+            background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(15,23,42,0.9));
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .terms-badge .badge-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .terms-badge strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            color: var(--blue-light);
+            margin-bottom: 6px;
+        }
+
+        .terms-badge p {
+            font-size: 12px;
+            color: var(--text-subtle);
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-card2);
+            border-top: 1px solid var(--border);
+            padding: 28px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-subtle);
+        }
+
+        footer a {
+            font-size: 13px;
+            color: var(--blue-light);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            header { padding: 16px 20px; }
+            .page-hero { padding: 40px 20px 30px; }
+            .main-layout { grid-template-columns: 1fr; }
+            .content-area { padding: 32px 20px; border-right: none; }
+            .sidebar { padding: 20px; }
+            footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">JM</div>
+        <span class="logo-text">JM Analytics</span>
+    </a>
+    <a href="index.html" class="back-link">← Voltar ao site</a>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+    <div class="page-tag">Legal & Contratos</div>
+    <h1>Termos de <span>Uso</span></h1>
+    <p>Ao utilizar este site, você concorda com os termos abaixo. Leia com atenção antes de navegar.</p>
+    <p class="last-updated">📅 Vigência: Janeiro de 2026</p>
+</div>
+
+<!-- LAYOUT -->
+<div class="main-layout">
+
+    <!-- CONTEÚDO -->
+    <div class="content-area">
+
+        <div class="section-block" id="aceite">
+            <div class="section-number">01 — Aceite dos Termos</div>
+            <h2><span class="icon">✅</span> Concordância</h2>
+            <p>Ao utilizar este site, você concorda com os termos abaixo. Caso não concorde com algum item, solicitamos que não utilize nossos serviços.</p>
+            <div class="highlight-box">
+                <span class="hb-icon">ℹ️</span>
+                <p>O acesso e navegação no site implicam na aceitação integral e irrestrita destes termos.</p>
+            </div>
+        </div>
+
+        <div class="section-block" id="objetivo">
+            <div class="section-number">02 — Objetivo</div>
+            <h2><span class="icon">🎯</span> Sobre nossos serviços</h2>
+            <p>O site apresenta serviços de análise de dados, BI, automação e consultoria. A JM Analytics atua como consultoria especializada em inteligência de dados para pequenas e médias empresas.</p>
+            <ul class="info-list">
+                <li>Análise de dados e Business Intelligence</li>
+                <li>Automação de processos e relatórios</li>
+                <li>Consultoria estratégica baseada em dados</li>
+                <li>Diagnósticos e otimização de operações</li>
+            </ul>
+        </div>
+
+        <div class="section-block" id="garantia">
+            <div class="section-number">03 — Resultados</div>
+            <h2><span class="icon">⚠️</span> Sem garantia de resultados</h2>
+            <p>Os resultados apresentados, como redução de custos ou identificação de ineficiências, são exemplos de casos reais e <strong>não garantem resultados idênticos</strong>.</p>
+            <p>Cada empresa possui particularidades, contextos de mercado e maturidade de dados diferentes. Nossas análises fornecem insights valiosos, mas a implementação e os resultados finais dependem de diversos fatores externos e internos à organização.</p>
+            <div class="highlight-box">
+                <span class="hb-icon">📊</span>
+                <p>Trabalhamos com base em dados reais e metodologias comprovadas, mas não podemos garantir resultados específicos para cada caso.</p>
+            </div>
+        </div>
+
+        <div class="section-block" id="responsabilidade">
+            <div class="section-number">04 — Responsabilidade</div>
+            <h2><span class="icon">⚖️</span> Responsabilidade do cliente</h2>
+            <p>As decisões tomadas com base em relatórios e análises fornecidos são de <strong>responsabilidade do cliente</strong>.</p>
+            <p>A JM Analytics fornece informações, diagnósticos e recomendações baseadas em dados. Cabe ao cliente avaliar, validar e decidir sobre a implementação das sugestões apresentadas, considerando seu contexto específico de negócio.</p>
+            <ul class="info-list">
+                <li>O cliente é responsável pelas decisões estratégicas tomadas</li>
+                <li>Recomendamos validação interna antes de implementações críticas</li>
+                <li>Não nos responsabilizamos por decisões tomadas com base em nossas análises</li>
+            </ul>
+        </div>
+
+        <div class="section-block" id="propriedade">
+            <div class="section-number">05 — Propriedade</div>
+            <h2><span class="icon">🔐</span> Propriedade intelectual</h2>
+            <p>Todo conteúdo do site pertence à <strong>JM Analytics</strong>, incluindo textos, imagens, metodologias, frameworks e materiais explicativos.</p>
+            <p>É proibida a reprodução, distribuição ou uso não autorizado de qualquer material deste site sem prévia autorização por escrito.</p>
+            <div class="highlight-box">
+                <span class="hb-icon">©</span>
+                <p>Todos os direitos reservados. Nosso conteúdo é protegido por leis de propriedade intelectual.</p>
+            </div>
+        </div>
+
+        <div class="section-block" id="modificacoes">
+            <div class="section-number">06 — Modificações</div>
+            <h2><span class="icon">🔄</span> Alterações nos termos</h2>
+            <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor imediatamente após sua publicação no site.</p>
+            <p>Recomendamos que você revise periodicamente esta página para se manter informado sobre eventuais atualizações.</p>
+        </div>
+
+        <div class="section-block" id="contato">
+            <div class="section-number">07 — Contato</div>
+            <h2><span class="icon">✉️</span> Dúvidas sobre os termos</h2>
+            <p>Em caso de dúvidas sobre estes Termos de Uso, entre em contato conosco:</p>
+            <p>📧 <a href="mailto:jmanalytics.contato@gmail.com" class="contact-email-link">jmanalytics.contato@gmail.com</a></p>
+            <p>Estamos à disposição para esclarecer qualquer questão.</p>
+        </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <!-- PERSONAGEM -->
+        <div class="character-card">
+            <div class="character-img-wrap">
+                <img src="img/jotta.png" alt="Consultor JM Analytics">
+            </div>
+            <div class="character-text">
+                <strong>Transparência e clareza.</strong>
+                <p>Nossos termos são diretos e claros. Sem letras miúdas. Se tiver dúvidas, é só perguntar!</p>
+                <a href="https://wa.me/5521969181327?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20termos%20de%20uso">
+                    💬 Tirar dúvidas agora
+                </a>
+            </div>
+        </div>
+
+        <!-- SUMÁRIO -->
+        <div class="summary-card">
+            <h3>Nesta página</h3>
+            <ul class="summary-list">
+                <li><a href="#aceite">Aceite dos Termos</a></li>
+                <li><a href="#objetivo">Objetivo</a></li>
+                <li><a href="#garantia">Sem garantia de resultados</a></li>
+                <li><a href="#responsabilidade">Responsabilidade do cliente</a></li>
+                <li><a href="#propriedade">Propriedade intelectual</a></li>
+                <li><a href="#modificacoes">Modificações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+
+        <!-- BADGE TERMOS -->
+        <div class="terms-badge">
+            <div class="badge-icon">📋</div>
+            <strong>Termos Vigentes</strong>
+            <p>Estes termos estão em vigor desde janeiro de 2026 e se aplicam a todos os usuários do site.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 JM Analytics. Todos os direitos reservados.</p>
+    <div style="display:flex; gap:24px;">
+        <a href="politica-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+    </div>
+</footer>
+
+</body>
+</html>
