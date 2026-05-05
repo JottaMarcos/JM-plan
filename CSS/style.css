@@ -1,0 +1,463 @@
+</style>
+
+/* ===================================
+   RESET E BASE
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0a0f1c 0%, #0d1526 100%);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ===================================
+   HEADER
+   =================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #60a5fa;
+}
+
+.btn-header {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.btn-header:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   HERO (INTRODUÇÃO)
+   =================================== */
+.hero-intro {
+    padding: 140px 60px 80px;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-intro h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-intro h1 .highlight {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-intro p {
+    font-size: 17px;
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+.hero-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===================================
+   FAIXA ANIMADA (MARQUEE)
+   =================================== */
+.marquee-container {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-top: 1px solid #1e293b;
+    border-bottom: 1px solid #1e293b;
+    padding: 22px 0;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 50px;
+    color: #60a5fa;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.marquee-item::before {
+    content: "✓";
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===================================
+   SEÇÃO DE PLANOS (LAYOUT CENTRALIZADO 3 COLUNAS)
+   =================================== */
+
+.plans-main-section {
+    padding: 50px 20px;
+    max-width: 1050px;
+    margin: 0 auto;
+    text-align: center; /* Centraliza tag, título e subtítulo */
+}
+
+/* Tag da Seção */
+.section-tag {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+
+/* Título da Seção */
+.section-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+/* Subtítulo */
+.section-subtitle {
+    color: #94a3b8;
+    font-size: 16px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ===================================
+   GRID DOS PLANOS (3 COLUNAS CENTRALIZADAS)
+   =================================== */
+.plans-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards lado a lado */
+    gap: 20px;
+    max-width: 100%; /* Limita a largura para não esticar demais */
+    margin: 0 auto;    /* Centraliza o grid na tela */
+}
+
+/* Card Individual */
+.plan-card-compact {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 24px 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Permite alinhar botão no final */
+    justify-content: space-between;
+    gap: 0;
+}
+
+.plan-card-compact:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Card Destaque (Centro) */
+.plan-card-compact.featured {
+    border: 2px solid #3b82f6;
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: #0f172a;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Ícone do Plano */
+.plan-icon-sm {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    align-self: flex-start; /* Mantém alinhado à esquerda */
+}
+
+.plan-card-compact:nth-child(1) .plan-icon-sm { background: linear-gradient(135deg, #10b981, #34d399); }
+.plan-card-compact:nth-child(2) .plan-icon-sm { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+.plan-card-compact:nth-child(3) .plan-icon-sm { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+
+/* Título do Plano */
+.plan-card-compact h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fffdfd;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+/* Preço */
+.plan-price-sm {
+    font-size: 30px;
+    font-weight: 800;
+    color: #eef5ff; 
+    margin-bottom: 12px;
+    text-align: left;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.25)
+}
+
+/* Seções Internas do Card */
+.plan-section-sm {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.plan-section-sm h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-section-sm p {
+    font-size: 13px;
+    color: #afaeae;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+/* Lista de Features */
+.plan-features-sm {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.plan-features-sm li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.plan-features-sm li::before {
+    content: "✓";
+    color: #60a5fa;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 11px;
+    margin-top: 1px;
+}
+
+/* Botão do Card */
+.plan-btn-sm {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: rgb(238, 238, 238);
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    margin-top: 14px; /* 🔑 TRUQUE: Empurra o botão para o final do card, alinhando todos */
+    box-sizing: border-box;
+}
+
+.plan-btn-sm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Container de Imagem (OCULTO conforme solicitado) */
+.image-container-sm {
+    display: none;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+footer {
+    background: #0a0f1c;
+    border-top: 1px solid #1e293b;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-text {
+    color: #0c68a5;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #60a5fa;
+}
+
+/* ===================================
+   RESPONSIVO
+   =================================== */
+@media (max-width: 968px) {
+    .plans-main-section { padding: 40px 16px; }
+    .section-title { font-size: 26px; }
+    .section-subtitle { font-size: 14px; margin-bottom: 30px; }
+
+    .plans-layout {
+        grid-template-columns: 1fr; /* No celular, empilha 1 por 1 */
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .plan-card-compact { padding: 20px; }
+    footer { padding: 30px 20px 15px; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
